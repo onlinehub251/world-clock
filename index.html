@@ -1,93 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Clock by Mohammed Khaled</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    .clock-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      width: 80%;
-      max-width: 800px;
-    }
-    .clock {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
-    .city {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      color: #ffd700;
-    }
-    .time {
-      font-size: 1.8em;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <h1>🌍 World Clock</h1>
-  <div class="clock-container">
-    <div class="clock">
-      <div class="city">Abu Dhabi</div>
-      <div class="time" id="abuDhabi"></div>
-    </div>
-    <div class="clock">
-      <div class="city">London</div>
-      <div class="time" id="london"></div>
-    </div>
-    <div class="clock">
-      <div class="city">New York</div>
-      <div class="time" id="newYork"></div>
-    </div>
-    <div class="clock">
-      <div class="city">Tokyo</div>
-      <div class="time" id="tokyo"></div>
-    </div>
-  </div>
-
-  <script>
-    function updateTime() {
-      const timeZones = {
-        abuDhabi: "Asia/Dubai",
-        london: "Europe/London",
-        newYork: "America/New_York",
-        tokyo: "Asia/Tokyo"
-      };
-
-      for (const [id, zone] of Object.entries(timeZones)) {
-        const time = new Date().toLocaleTimeString("en-US", {
-          timeZone: zone,
-          hour12: true,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit"
-        });
-        document.getElementById(id).textContent = time;
-      }
-    }
-
-    updateTime();
-    setInterval(updateTime, 1000);
-  </script>
-</body>
-</html>
+const cities = [
+  {name: "Abu Dhabi, UAE", timezone: "Asia/Dubai"},
+  {name: "London, UK", timezone: "Europe/London"},
+  {name: "Washington D.C., USA", timezone: "America/New_York"},
+  {name: "Tokyo, Japan", timezone: "Asia/Tokyo"},
+  {name: "Paris, France", timezone: "Europe/Paris"},
+  {name: "Canberra, Australia", timezone: "Australia/Sydney"},
+  {name: "Moscow, Russia", timezone: "Europe/Moscow"},
+  {name: "Beijing, China", timezone: "Asia/Shanghai"},
+  {name: "New Delhi, India", timezone: "Asia/Kolkata"},
+  {name: "Ottawa, Canada", timezone: "America/Toronto"},
+  {name: "Brasília, Brazil", timezone: "America/Sao_Paulo"},
+  {name: "Pretoria, South Africa", timezone: "Africa/Johannesburg"},
+  ...
+  // Add all 195+ countries here
+];
